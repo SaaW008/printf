@@ -8,11 +8,10 @@ printchar - print char
 Return: void
 */
 
-int printchar(const void *c, int *ret)
+int printchar(const void *c, int)
 {
         int rv;
 
         rv = write(1, c, 1);
-        ret++;
         return (rv);
 }
