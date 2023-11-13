@@ -7,7 +7,7 @@
  * Return: length of *format
  */
 
-int _printf(const char *format, ...)
+int _printf(*const char format, ...)
 {
 	unsigned int str_len = 0;
 
