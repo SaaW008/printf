@@ -1,19 +1,62 @@
 #include "main.h"
-
-/**
- * _printf - prints the formated strings to standard output
- * @format: formated string to handle
- * @...: variadic arguments for format specifier
- * Return: length of *format
- */
+#include <stdio.h>
 
 int _printf(const char *format, ...)
 {
-	unsigned int str_len = 0;
+	va_list args;
+	int ret = 0, i = 0;
+	char opt;
 
-	while (format[str_len] != '\0')
+	va_start(args, format);
+	while (format[i] != '\0')
 	{
-		str_len++;
+		if (format[i] == '%')
+		{
+			opt = format[i + 1];
+			switch (opt)
+			{
+			case 'c':
+			{
+				ret += printchar(va_arg(args, int *));
+				i += 2;
+				break;
+			}
+			case '%':
+			{
+				ret += write(1, &opt, 1);
+				i += 2;
+				break;
+			}
+			case 's':
+			{
+				char *s_arg;
+				s_arg = (va_arg(args, char *));
+				ret += printstring(s_arg);
+				i += 2;
+				break;
+			}
+			case 'd':
+			{
+				int d_ret = 0;
+				int d_arg = (int *) va_arg(args, int *);
+
+				printint(d_arg);
+				i += 2;
+				break;
+			}
+			case 'i':
+			{
+				i += 2;
+				break;
+			}
+			}
+		}
+		else
+		{
+			ret += write(1, &format[i], 1);
+			i++;
+		}
 	}
-	return (str_len);
+	va_end(args);
+	return (ret);
 }
