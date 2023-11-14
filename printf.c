@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			case 'd':
 			{
 				int d_ret = 0;
-				int d_arg = (int *) va_arg(args, int *);
+				int d_arg = (int) va_arg(args, int);
 
 				printint(d_arg);
 				i += 2;
