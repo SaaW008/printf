@@ -9,7 +9,7 @@
 int printint(const int *n)
 {
 	int i_ret = 0;
-	int i = (int) n;
+	int i = *n;
 	char signe;
 
 	if (i < 0)
