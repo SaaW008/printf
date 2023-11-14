@@ -1,7 +1,6 @@
 #include "main.h"
 
 /**
- 
 printchar - print char
 @c: pointer to char
 @ReturnValue: pointer to the return value of printf

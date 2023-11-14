@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * printchar - print char
@@ -8,7 +7,11 @@
  * Return: void
  */
 
-int printchar(const void *c)
+int printchar(const void *c, int *ret)
 {
-	return (write(1, c, 1));
+	int rv;
+
+	rv = write(1, c, 1);
+	ret++;
+	return (rv);
 }
