@@ -17,7 +17,7 @@ int printint(const int *n)
 		signe = '-';
 		i_ret += write(1, &signe, 1);
 		i *= -1;
-		printint(i);
+		printint((int *) i);
 	}
 	else if (i < 10)
 	{
