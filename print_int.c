@@ -48,8 +48,7 @@ int itostdo(int i)
 		i -= 10 * a;
 		itostdo(a);
 	}
-	tmp = (char) i;
+	tmp = '0' + i;
 	itos_ret = write(1, &tmp, 1);
 	return (itos_ret);
 }
-
