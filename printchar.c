@@ -8,7 +8,7 @@ printchar - print char
 Return: void
 */
 
-int printchar(const void *c, int)
+int printchar(const char *c, int)
 {
         int rv;
 
