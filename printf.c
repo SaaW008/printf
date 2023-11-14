@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 			{
 				int d_arg = (int) va_arg(args, int);
 
-				ret = printint((int *) d_arg);
+				ret += printint((int *) d_arg);
 				i += 2;
 				break;
 			}
