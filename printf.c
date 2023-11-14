@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 				int d_ret = 0;
 				int d_arg = (int) va_arg(args, int);
 
-				printint(d_arg);
+				printint((int *) d_arg);
 				i += 2;
 				break;
 			}
