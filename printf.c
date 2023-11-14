@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 
-int _printf(*const char format, ...)
+int _printf(const char *format, ...)
 {
 	va_list args;
 	int ret = 0, i = 0;
