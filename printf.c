@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 			{
-				ret += printchar((char *) va_arg(args, char));
+				ret += printchar((va_arg(args, int));
 				i += 2;
 				break;
 			}
