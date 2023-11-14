@@ -8,9 +8,15 @@
 
 int printstring(const char *c)
 {
+<<<<<<< HEAD
         int s_len = _strlen((char *)c);
         write(1, c, s_len);
         return (s_len);
+=======
+	int s_len = _strlen((char *)c);
+	write(1, c, s_len);
+	return (s_len);
+>>>>>>> master
 }
 
 /**
@@ -21,6 +27,7 @@ int printstring(const char *c)
 
 int _strlen(const char *s)
 {
+<<<<<<< HEAD
         int i;
 
         i = 0;
@@ -31,4 +38,16 @@ int _strlen(const char *s)
         }
 
         return (i);
+=======
+	int i;
+
+	i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
+>>>>>>> master
 }

@@ -10,6 +10,7 @@ int itostdo(int i);
 
 int printint(const int *n)
 {
+<<<<<<< HEAD
         int i_ret = 0;
         int i = *n;
         char signe;
@@ -30,6 +31,28 @@ int printint(const int *n)
                 i_ret = itostdo(i);
         }
         return (i_ret);
+=======
+	int i_ret = 0;
+	int i = *n;
+	char signe;
+
+	if (i < 0)
+	{
+		signe = '-';
+		i_ret += write(1, &signe, 1);
+		i *= -1;
+		printint(*(int)i);
+	}
+	else if (i < 10)
+	{
+		i_ret = itostdo(i);
+	}
+	else if (i >= 10)
+	{
+		i_ret = itostdo(i);
+	}
+	return (i_ret);
+>>>>>>> master
 }
 
 /**
@@ -40,6 +63,7 @@ int printint(const int *n)
 
 int itostdo(int i)
 {
+<<<<<<< HEAD
         int itos_ret =0;
         char tmp;
         if( i > 9 )
@@ -53,4 +77,19 @@ int itostdo(int i)
         tmp = '0' + i;
         itos_ret = write(1, &tmp, 1);
         return (itos_ret);
+=======
+	int itos_ret =0;
+	char tmp;
+	if( i > 9 )
+	{
+		int a;
+		a = i / 10;
+
+		i -= 10 * a;
+		itostdo(a);
+	}
+	tmp = '0' + i;
+	itos_ret = write(1, &tmp, 1);
+	return (itos_ret);
+>>>>>>> master
 }
