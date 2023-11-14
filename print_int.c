@@ -1,5 +1,7 @@
 #include "main.h"
 
+int itostdo(int i);
+
 /**
  * printint - print int
  * @n: pointer to int
