@@ -9,6 +9,6 @@ int _putchar(char c);
 int printchar(const char *c);
 int printstring(const char *c);
 int _strlen(const char *s);
-int printint(const int *n);
+int printint(int i);
 
 #endif
