@@ -9,6 +9,7 @@
 int printstring(const char *c)
 {
 	int s_len = _strlen((char *)c);
+
 	write(1, c, s_len);
 	return (s_len - 1);
 }
