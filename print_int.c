@@ -1,56 +1,58 @@
 #include "main.h"
 
-int itostdo(int i);
-
 /**
  * printint - print int
- * @n: pointer to int
+ * @n: int to do
  * Return: number of element printed
  */
+int print_int_proc(int i);
 
-int printint(const int *n)
+int printint(int i)
 {
 	int i_ret = 0;
-	int i = *n;
-	char signe;
 
-	if (i < 0)
+	if (i == 0)
 	{
-		signe = '-';
-		i_ret += write(1, &signe, 1);
-		i *= -1;
-		printint(*(int)i);
+		i_ret += write(1, "0", 1);
 	}
-	else if (i < 10)
+	else
 	{
-		i_ret = itostdo(i);
+		i_ret += print_int_proc(i);
 	}
-	else if (i >= 10)
-	{
-		i_ret = itostdo(i);
-	}
-	return (i_ret);
+	return (i_ret - 1);
 }
 
 /**
- * itostdo - print int to standard output stream
- * @i: int
+ * write_digit - print digit
+ * @n: int to write
  * Return: number of element printed
  */
 
-int itostdo(int i)
+int write_digit(int n)
 {
-	int itos_ret =0;
-	char tmp;
-	if( i > 9 )
-	{
-		int a;
-		a = i / 10;
+	char digit = '0' + n;
+	return (write(1, &digit, 1));
+}
 
-		i -= 10 * a;
-		itostdo(a);
+/**
+ * print_int_proc - procedur of printing
+ * @n: int to do
+ * Return: number of element printed
+ */
+
+int print_int_proc(int i)
+{
+	int i_ret = 0;
+
+	if (i < 0)
+	{
+		i = -i;
+		i_ret += write(1, "-", 1);
 	}
-	tmp = '0' + i;
-	itos_ret = write(1, &tmp, 1);
-	return (itos_ret);
+	if (i / 10 != 0)
+	{
+		i_ret += print_int_proc(i / 10);
+	}
+	i_ret += write_digit(i % 10);
+	return (i_ret);
 }
