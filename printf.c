@@ -31,7 +31,8 @@ int _printf(const char *format, ...)
 			case 's':
 			{
 				char *s_arg;
-				s_arg = (va_arg(args, char *));
+
+				s_arg = va_arg(args, char *);
 				ret += printstring(s_arg);
 				i += 2;
 				break;
