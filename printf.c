@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 int _printf(const char *format, ...)
 {
@@ -17,7 +16,7 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 			{
-				ret += printchar((va_arg(args, int));
+				ret += printchar((char *)va_arg(args, int));
 				i += 2;
 				break;
 			}
@@ -37,14 +36,17 @@ int _printf(const char *format, ...)
 			}
 			case 'd':
 			{
-				int d_arg = (int) va_arg(args, int);
+				int d_arg = va_arg(args, int);
 
-				ret += printint((int *) d_arg);
+				ret += printint(d_arg);
 				i += 2;
 				break;
 			}
 			case 'i':
 			{
+				int i_arg = va_arg(args, int);
+
+				ret += printint(i_arg);
 				i += 2;
 				break;
 			}
