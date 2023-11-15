@@ -6,7 +6,7 @@
  * Return: number of element printed
  */
 
-int printchar(const char *c)
+int printchar(char c)
 {
 	int c_ret = 0;
 
