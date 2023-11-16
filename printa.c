@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 int _printf(const char *format, ...)
 {
@@ -16,40 +17,35 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 			{
-				char c_arg = (char) va_arg(args, int);
-
-				ret += printchar(c_arg);
+				printchar(va_arg(args, int *), &ret);
 				i += 2;
 				break;
 			}
 			case '%':
 			{
-				ret += write(1, &opt, 1);
+				write(1, &opt, 1);
 				i += 2;
+				ret++;
 				break;
 			}
 			case 's':
 			{
-				char *s_arg;
-
-				s_arg = va_arg(args, char *);
-				ret += printstring(s_arg);
+				char *str;
+				str = (va_arg(args, char *));
+				printstring(str, ret);
 				i += 2;
 				break;
 			}
 			case 'd':
 			{
-				int d_arg = va_arg(args, int);
-
-				ret += printint(d_arg);
-				i += 2;
+				int d_ret = 0;
+				int d_arg = (int) va_arg(args, int *);
+				printint(d_arg);
+				i =+ 2;
 				break;
 			}
 			case 'i':
 			{
-				int i_arg = va_arg(args, int);
-
-				ret += printint(i_arg);
 				i += 2;
 				break;
 			}
@@ -57,8 +53,9 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			ret += write(1, &format[i], 1);
+			write(1, &format[i], 1);
 			i++;
+			ret++;
 		}
 	}
 	va_end(args);
