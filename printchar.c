@@ -2,16 +2,14 @@
 
 /**
  
-printchar - print char
-@c: pointer to char
+printchar - handle printing of char args for printf
+@c: pointer to an char type
 @ReturnValue: pointer to the return value of printf
 Return: void
 */
 
-int printchar(const char *c)
+void printchar(void *c, int *returnValue)
 {
-        int rv;
-
-        rv = write(1, c, 1);
-        return (rv);
+        write(1, c, 1);
+        *ReturnValue += 1;
 }
